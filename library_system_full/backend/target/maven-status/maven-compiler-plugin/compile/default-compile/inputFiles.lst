@@ -1,6 +1,9 @@
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\model\BorrowingRecord.java
 C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\dto\RegisterDto.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\model\Inventory.java
 C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\config\DbUserDetailsService.java
 C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\LibraryApplication.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\model\Book.java
 C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\dto\LoginDto.java
 C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\controller\BorrowController.java
 C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\service\UserService.java

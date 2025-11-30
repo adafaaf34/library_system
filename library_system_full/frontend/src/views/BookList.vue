@@ -14,11 +14,33 @@ import axios from 'axios'
 export default {
   data() { return { inventory: [] } },
   async mounted() {
-    try { const r = await axios.get('/books/inventory'); this.inventory = r.data } catch(e){ console.error(e) }
+    try {
+      const r = await axios.get('http://localhost:8080/api/books/inventory')
+      this.inventory = r.data
+    } catch(e){
+      console.error("取得書本清單失敗:", e)
+    }
   },
   methods: {
-    async borrow(id){ try{ await axios.post('/borrow/do', { inventoryId: id }); alert('borrowed'); location.reload() } catch(e){ alert(e.response?.data||e.message) } },
-    async ret(id){ try{ await axios.post('/borrow/return', { inventoryId: id }); alert('returned'); location.reload() } catch(e){ alert(e.response?.data||e.message) } }
+    async borrow(id){
+      try{
+        await axios.post(`http://localhost:8080/api/borrow/do`, { inventoryId: id })
+        alert('borrowed')
+        location.reload()
+      } catch(e){
+        alert(e.response?.data || e.message)
+      }
+    },
+    async ret(id){
+      try{
+        await axios.post(`http://localhost:8080/api/borrow/return`, { inventoryId: id })
+        alert('returned')
+        location.reload()
+      } catch(e){
+        alert(e.response?.data || e.message)
+      }
+    }
   }
 }
 </script>
+

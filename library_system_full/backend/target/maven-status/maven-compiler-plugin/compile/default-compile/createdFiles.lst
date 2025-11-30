@@ -1,3 +1,5 @@
+com\example\library\config\WebConfig$1.class
+com\example\library\config\WebConfig.class
 com\example\library\repository\UserRepository.class
 com\example\library\config\JwtUtil.class
 com\example\library\config\SecurityConfig.class
@@ -6,10 +8,13 @@ com\example\library\dto\RegisterDto.class
 com\example\library\controller\AuthController.class
 com\example\library\service\UserService.class
 com\example\library\controller\BorrowController.class
+com\example\library\model\Book.class
+com\example\library\model\BorrowingRecord.class
 com\example\library\repository\BorrowRepository.class
 com\example\library\dto\LoginDto.class
 com\example\library\dto\BorrowDto.class
 com\example\library\service\BorrowService.class
+com\example\library\model\Inventory.class
 com\example\library\controller\BookController.class
 com\example\library\config\JwtFilter.class
 com\example\library\LibraryApplication.class
