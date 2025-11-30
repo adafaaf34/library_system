@@ -1,0 +1,37 @@
+CREATE DATABASE IF NOT EXISTS library_db;
+USE library_db;
+
+CREATE TABLE IF NOT EXISTS users (
+  user_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  phone_number VARCHAR(20) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  salt VARCHAR(255) NOT NULL,
+  user_name VARCHAR(100),
+  registration_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+  last_login_time DATETIME NULL
+);
+
+CREATE TABLE IF NOT EXISTS book (
+  isbn VARCHAR(20) PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  author VARCHAR(255),
+  introduction TEXT
+);
+
+CREATE TABLE IF NOT EXISTS inventory (
+  inventory_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  isbn VARCHAR(20) NOT NULL,
+  store_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+  status ENUM('AVAILABLE','BORROWED','MAINTENANCE','LOST','DAMAGED','DISCARDED') DEFAULT 'AVAILABLE',
+  FOREIGN KEY (isbn) REFERENCES book(isbn)
+);
+
+CREATE TABLE IF NOT EXISTS borrowing_record (
+  record_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT NOT NULL,
+  inventory_id BIGINT NOT NULL,
+  borrowing_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+  return_time DATETIME NULL,
+  FOREIGN KEY (user_id) REFERENCES users(user_id),
+  FOREIGN KEY (inventory_id) REFERENCES inventory(inventory_id)
+);

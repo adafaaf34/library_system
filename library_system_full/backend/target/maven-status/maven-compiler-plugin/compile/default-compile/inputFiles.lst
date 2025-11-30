@@ -1,0 +1,17 @@
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\dto\RegisterDto.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\config\DbUserDetailsService.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\LibraryApplication.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\dto\LoginDto.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\controller\BorrowController.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\service\UserService.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\config\JwtUtil.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\config\JwtFilter.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\config\WebConfig.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\model\User.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\config\SecurityConfig.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\dto\BorrowDto.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\service\BorrowService.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\controller\BookController.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\repository\UserRepository.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\controller\AuthController.java
+C:\Users\adafa\library_system_full\backend\src\main\java\com\example\library\repository\BorrowRepository.java
