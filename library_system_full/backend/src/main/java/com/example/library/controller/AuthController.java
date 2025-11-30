@@ -22,10 +22,18 @@ public class AuthController {
         return ResponseEntity.ok().body(java.util.Map.of("status","registered"));
     }
 
-    @PostMapping("/login")
+@PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginDto dto) {
-        User u = userService.login(dto.getPhone(), dto.getPassword());
-        String token = jwtUtil.generateToken(u.getPhoneNumber(), u.getUserId());
-        return ResponseEntity.ok().body(java.util.Map.of("token", token, "userId", u.getUserId()));
+        try {
+            User u = userService.login(dto.getPhone(), dto.getPassword());
+            String token = jwtUtil.generateToken(u.getPhoneNumber(), u.getUserId());
+            return ResponseEntity.ok(java.util.Map.of(
+                "token", token,
+                "userId", u.getUserId()
+            ));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(401)
+                    .body(java.util.Map.of("message", e.getMessage()));
+        }
     }
 }

@@ -11,36 +11,54 @@
 
 <script>
 import axios from 'axios'
+
 export default {
-  data() { return { inventory: [] } },
+  data() {
+    return { inventory: [] }
+  },
   async mounted() {
-    try {
-      const r = await axios.get('http://localhost:8080/api/books/inventory')
-      this.inventory = r.data
-    } catch(e){
-      console.error("取得書本清單失敗:", e)
-    }
+    console.log("BookList mounted")
+    this.loadInventory()
   },
   methods: {
-    async borrow(id){
-      try{
-        await axios.post(`http://localhost:8080/api/borrow/do`, { inventoryId: id })
-        alert('borrowed')
-        location.reload()
-      } catch(e){
+    async loadInventory() {
+      try {
+        const r = await axios.get('http://localhost:8080/api/books/inventory')
+        this.inventory = r.data
+      } catch(e) {
+        console.error("取得書本清單失敗:", e)
+      }
+    },
+    async borrow(id) {
+      console.log("borrow clicked, id =", id) // <-- 加上這行測試
+      const token = localStorage.getItem('jwt')
+      if (!token) { alert("請先登入才能借書！"); return }
+
+      try {
+        await axios.post('http://localhost:8080/api/borrow/do', { inventoryId: id }, {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        alert('借閱成功')
+        this.loadInventory()
+      } catch(e) {
         alert(e.response?.data || e.message)
       }
     },
-    async ret(id){
-      try{
-        await axios.post(`http://localhost:8080/api/borrow/return`, { inventoryId: id })
-        alert('returned')
-        location.reload()
-      } catch(e){
+    async ret(id) {
+      console.log("return clicked, id =", id) // <-- 這裡也加測試
+      const token = localStorage.getItem('jwt')
+      if (!token) { alert("請先登入才能還書！"); return }
+
+      try {
+        await axios.post('http://localhost:8080/api/borrow/return', { inventoryId: id }, {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        alert('還書成功')
+        this.loadInventory()
+      } catch(e) {
         alert(e.response?.data || e.message)
       }
     }
   }
 }
 </script>
-

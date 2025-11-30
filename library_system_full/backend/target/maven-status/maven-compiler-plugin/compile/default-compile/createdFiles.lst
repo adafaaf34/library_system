@@ -3,7 +3,6 @@ com\example\library\config\WebConfig.class
 com\example\library\repository\UserRepository.class
 com\example\library\config\JwtUtil.class
 com\example\library\config\SecurityConfig.class
-com\example\library\repository\UserRepository$1.class
 com\example\library\dto\RegisterDto.class
 com\example\library\controller\AuthController.class
 com\example\library\service\UserService.class
